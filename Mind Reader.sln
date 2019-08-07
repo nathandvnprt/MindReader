@@ -1,25 +1,65 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.352
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mind Reader", "Mind Reader\Mind Reader.csproj", "{3D7EE888-A6C1-4ED9-9270-ACA59B43243F}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3D7EE888-A6C1-4ED9-9270-ACA59B43243F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D7EE888-A6C1-4ED9-9270-ACA59B43243F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D7EE888-A6C1-4ED9-9270-ACA59B43243F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D7EE888-A6C1-4ED9-9270-ACA59B43243F}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7DE07555-752C-4906-ACA1-8A6A50DEA41C}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HelloWorld
+{
+
+    //A Simple Program to display the words Hello World
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          //introdution to program
+
+            Console.WriteLine("Welcome to Mind Reader. Please think of a number between 1-100.");
+
+          //This section is to gather the variables needed.
+
+            Console.WriteLine("Now how many digits is your number? e.g. 25 has 2 digits. 100 has 3 digits.");
+                string digits = Console.ReadLine();
+
+            Console.WriteLine("What is the sum of the digits? e.g. if 25 was your number you would add 2 and 5. 2 + 5 = 7. your answer would be  7.");
+                string sum = Console.ReadLine();
+
+            Console.WriteLine("What is the difference of the digits ? e.g. if 25 was your number you would subtract 2 and 5. 2 - 5 = -3. your answer would be  -3.");
+                string diff = Console.ReadLine();
+
+            //Using the variables we have to determine the number
+
+            switch (digits)
+            {
+                case "1":
+                    Console.WriteLine($"The number you are thinking of is {digits}.");
+                    break;
+                case "2":
+                   double newSum = Convert.ToDouble(sum);
+                   double newDiff = Convert.ToDouble(diff);
+                   double secondDigit = ((newSum - newDiff) / 2);
+                   double firstDigit = newDiff + secondDigit;
+                   string newFirstDigit = Convert.ToString(firstDigit);
+                   string newSecondDigit = Convert.ToString(secondDigit);
+
+                    //print results
+
+                    Console.WriteLine($"The number you are thinking of is {newFirstDigit}{newSecondDigit}");
+                    break;
+                case "3":
+                    Console.WriteLine("The number you are thinking of is 100.");
+                    break;
+                default:
+                    Console.WriteLine("Something went wrong please try again.");
+                    break;
+            }
+
+            Console.WriteLine("Was I right?");
+                    Console.ReadLine();
+                  
+
+                        
+                }
+    }
+}
